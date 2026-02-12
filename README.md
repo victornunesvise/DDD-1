@@ -51,10 +51,19 @@ Explique como os bounded contexts vão se comunicar. Use os padrões de comunica
 - **Mensageria/Eventos (desacoplado):** Ex.: O Contexto de Consultas emite um evento "Consulta Finalizada", consumido pelo Contexto de Pagamentos.
 - **APIs (síncrono):** Ex.: O Contexto de Pagamentos consulta informações de preços no Contexto de Consultas.
 
-| **De (Origem)**              | **Para (Destino)**          | **Forma de Comunicação**    | **Exemplo de Evento/Chamada**                  |
-|------------------------------|-----------------------------|-----------------------------|-----------------------------------------------|
-| Contexto de Consultas        | Contexto de Pagamentos      | Mensageria (Evento)         | "Consulta Finalizada"                         |
-| Contexto de Cadastro          | Contexto de Consultas      | API                         | Obter informações de um Paciente pelo ID      |
+| De (Origem) | Para (Destino) | Forma de Comunicação | Exemplo de Evento/Chamada |
+|---|---|---|---|
+| **Cobrança & Pagamentos** | **Matrículas & Planos** | Mensageria (Evento) | `PagamentoConfirmado` / `PagamentoRecusado` / `FaturaVencida` |
+| **Matrículas & Planos** | **Acesso & Check-in** | API (síncrono) | `GET /eligibilidade-acesso?alunoId=...` |
+| **Matrículas & Planos** | **Acesso & Check-in** | Mensageria (Evento) | `MatriculaAtualizada` (ativou/suspendeu/cancelou) |
+| **Acesso & Check-in** | **Relatórios & Indicadores** | Mensageria (Evento) | `CheckInRegistrado` / `AcessoBloqueado` |
+| **Matrículas & Planos** | **Aulas & Reservas** | API (síncrono) | `GET /planos/{id}` ou `GET /alunos/{id}/beneficios` |
+| **Aulas & Reservas** | **Relatórios & Indicadores** | Mensageria (Evento) | `ReservaCriada` / `PresencaConfirmada` / `NoShowRegistrado` |
+| **Avaliações & Evolução** | **Treinos** | API (síncrono) | `GET /avaliacoes/ultima?alunoId=...` |
+| **Treinos** | **Relatórios & Indicadores** | Mensageria (Evento) | `TreinoAtribuido` / `TreinoAtualizado` |
+| **Cobrança & Pagamentos** | **Comunicação** | Mensageria (Evento) | `PagamentoFalhou` (disparar aviso) / `FaturaGerada` |
+| **Aulas & Reservas** | **Comunicação** | Mensageria (Evento) | `AulaConfirmada` / `LembreteDeAula` |
+| **Identidade & Acesso (Auth)** | **Operação & Equipe** | API (síncrono) | `POST /introspect` (validar token/roles) ou leitura de `claims` |
 
 ---
 
