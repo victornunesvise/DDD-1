@@ -6,24 +6,23 @@ Identificar os subdomínios do projeto, classificá-los (Core, Supporting, Gener
 ---
 
 ## 1. Nome do Projeto
-**[Escreva o nome do sistema ou aplicação que está sendo modelado]**
+**TrainHub**
 
 ---
 
 ## 2. Objetivo Principal do Projeto
-**[Explique o propósito do sistema em uma ou duas frases]**  
-*Exemplo:* Facilitar o agendamento de consultas médicas online entre pacientes e médicos.
+TrainHub é um sistema de gestão para academias que centraliza alunos, planos/pagamentos, check-in e treinos, facilitando o controle da operação e a experiência do aluno.
 
 ---
 
 ## 3. Identificação dos Subdomínios
-Liste os subdomínios do sistema e classifique-os como **Core Domain**, **Supporting Subdomain** ou **Generic Subdomain**.
+Liste os subdomínios do sistema e classifique-os como Core Domain, Supporting Subdomain ou Generic Subdomain.
 
 | **Subdomínio**              | **Descrição**                                                                                      | **Tipo**         |
 |-----------------------------|--------------------------------------------------------------------------------------------------|------------------|
-| Ex.: Gestão de Consultas    | Gerencia o agendamento, consulta por vídeo e emissão de atestados e receitas.                   | Core Domain      |
-| Ex.: Cadastro de Usuários   | Gerencia o login, cadastro e permissões dos médicos e pacientes.                                | Supporting       |
-| Ex.: Pagamentos             | Processa pagamentos e repassa valores para médicos.                                             | Generic          |
+|  Gestão de Matrículas e Planos  |    Criação/renovação/cancelamento de planos, status do aluno (ativo/inativo), regras de acesso por plano.              | Core Domain      |
+|  Controle de Acesso e Check-in  |    Valida se o aluno pode entrar (plano ativo, pendências), registra frequência e controla tentativas de acesso.       | Core Domain      |
+|    |                                              | Generic          |
 
 ---
 
