@@ -29,10 +29,20 @@ Liste os subdomínios do sistema e classifique-os como Core Domain, Supporting
 ## 4. Desenho dos Bounded Contexts
 Liste e descreva os bounded contexts identificados no projeto. Explique a responsabilidade de cada um.
 
-| **Bounded Context**           | **Responsabilidade**                                                                                 | **Subdomínios Relacionados** |
-|-------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------|
-| Ex.: Contexto de Consultas    | Gerencia as consultas médicas, do agendamento à finalização, incluindo emissão de receitas.         | Gestão de Consultas         |
-| Ex.: Contexto de Pagamentos   | Processa cobranças de consultas e repasses para médicos ou clínicas.                              | Pagamentos                  |
+
+| Bounded Context | Responsabilidade | Subdomínios Relacionados |
+|---|---|---|
+| **Contexto de Matrículas & Planos** | Gerencia o ciclo de vida da matrícula (ativação, renovação, pausa e cancelamento), associação a planos e regras que impactam o acesso do aluno. | Gestão de Matrículas e Planos |
+| **Contexto de Acesso & Check-in** | Valida e registra entradas na academia, aplicando regras de acesso (ex.: matrícula ativa, sem inadimplência, restrições de horário) e mantendo histórico de frequência. | Controle de Acesso e Check-in |
+| **Contexto de Treinos** | Cria e atribui fichas de treino, organiza treinos e exercícios, define parâmetros (séries, reps, carga sugerida) e controla versões/atualizações de treino. | Gestão de Treinos |
+| **Contexto de Avaliações & Evolução** | Registra avaliações físicas e medidas, acompanha progresso e histórico do aluno (indicadores e comparativos ao longo do tempo). | Evolução e Avaliações |
+| **Contexto de Aulas & Reservas** | Gerencia aulas coletivas, horários, capacidade, reservas, lista de espera e presença em aula. | Agendamento de Aulas e Reservas |
+| **Contexto de Operação & Equipe** | Administra colaboradores, papéis e permissões internas (recepção, instrutor, admin) e rotinas operacionais básicas. | Gestão de Equipe e Operação |
+| **Contexto de Cobrança & Pagamentos** | Processa cobranças recorrentes e avulsas, controla faturas, confirmações/recusas, inadimplência e integrações com gateways de pagamento. | Pagamentos e Cobrança |
+| **Contexto de Comunicação** | Dispara notificações e mensagens (cobrança, confirmação de matrícula, lembrete de aula, avisos), com templates e canais. | Notificações e Comunicação |
+| **Contexto de Relatórios & Indicadores** | Consolida dados e gera métricas (frequência, churn, inadimplência, receita, ocupação de aulas) para visão gerencial. | Relatórios e Indicadores |
+| **Contexto de Identidade & Acesso (Auth)** | Gerencia autenticação, sessão, recuperação de senha e políticas de segurança para alunos e equipe. | Autenticação e Segurança |
+
 
 ---
 
