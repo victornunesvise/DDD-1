@@ -51,19 +51,23 @@ Explique como os bounded contexts vão se comunicar. Use os padrões de comunica
 - **Mensageria/Eventos (desacoplado):** Ex.: O Contexto de Consultas emite um evento "Consulta Finalizada", consumido pelo Contexto de Pagamentos.
 - **APIs (síncrono):** Ex.: O Contexto de Pagamentos consulta informações de preços no Contexto de Consultas.
 
-| De (Origem) | Para (Destino) | Forma de Comunicação | Exemplo de Evento/Chamada |
+| Origem | Destino | Tipo de Relacionamento | Explicação |
 |---|---|---|---|
-| **Cobrança & Pagamentos** | **Matrículas & Planos** | Mensageria (Evento) | `PagamentoConfirmado` / `PagamentoRecusado` / `FaturaVencida` |
-| **Matrículas & Planos** | **Acesso & Check-in** | API (síncrono) | `GET /eligibilidade-acesso?alunoId=...` |
-| **Matrículas & Planos** | **Acesso & Check-in** | Mensageria (Evento) | `MatriculaAtualizada` (ativou/suspendeu/cancelou) |
-| **Acesso & Check-in** | **Relatórios & Indicadores** | Mensageria (Evento) | `CheckInRegistrado` / `AcessoBloqueado` |
-| **Matrículas & Planos** | **Aulas & Reservas** | API (síncrono) | `GET /planos/{id}` ou `GET /alunos/{id}/beneficios` |
-| **Aulas & Reservas** | **Relatórios & Indicadores** | Mensageria (Evento) | `ReservaCriada` / `PresencaConfirmada` / `NoShowRegistrado` |
-| **Avaliações & Evolução** | **Treinos** | API (síncrono) | `GET /avaliacoes/ultima?alunoId=...` |
-| **Treinos** | **Relatórios & Indicadores** | Mensageria (Evento) | `TreinoAtribuido` / `TreinoAtualizado` |
-| **Cobrança & Pagamentos** | **Comunicação** | Mensageria (Evento) | `PagamentoFalhou` (disparar aviso) / `FaturaGerada` |
-| **Aulas & Reservas** | **Comunicação** | Mensageria (Evento) | `AulaConfirmada` / `LembreteDeAula` |
-| **Identidade & Acesso (Auth)** | **Operação & Equipe** | API (síncrono) | `POST /introspect` (validar token/roles) ou leitura de `claims` |
+| Contexto de Matrículas & Planos | Contexto de Cobrança & Pagamentos | Customer–Supplier | Cobrança depende das regras do plano (valor, recorrência, vigência). Matrículas fornece essas regras; Pagamentos “consome” para cobrar corretamente. |
+| Contexto de Cobrança & Pagamentos | Contexto de Matrículas & Planos | Customer–Supplier | Matrículas depende do resultado financeiro (fatura paga/vencida) para manter status do aluno (adimplente/inadimplente) e ativar/suspender matrícula. |
+| Contexto de Matrículas & Planos | Contexto de Acesso & Check-in | Customer–Supplier | Check-in depende da matrícula estar ativa e das regras de acesso vinculadas ao plano. |
+| Contexto de Cobrança & Pagamentos | Contexto de Acesso & Check-in | Customer–Supplier | Check-in precisa saber se o aluno está inadimplente (ou com pagamento confirmado) para permitir/bloquear a entrada. |
+| Contexto de Identidade & Acesso (Auth) | Contexto de Matrículas & Planos | Conformist | Matrículas “conforma” com o modelo de identidade (userId, claims, roles) do provedor de autenticação, sem tentar impor mudanças nele. |
+| Contexto de Identidade & Acesso (Auth) | Contexto de Operação & Equipe | Conformist | Operação usa as permissões/roles definidas no Auth (admin, recepção, instrutor), aceitando o modelo como vem. |
+| Contexto de Operação & Equipe | Contexto de Treinos | Customer–Supplier | Treinos dependem da existência de “Instrutor/Coach” e suas permissões. Operação fornece e gerencia equipe; Treinos consome. |
+| Contexto de Matrículas & Planos | Contexto de Aulas & Reservas | Customer–Supplier | Reservas dependem de regras do plano (direito a aulas, limites, elegibilidade). |
+| Contexto de Aulas & Reservas | Contexto de Comunicação | Conformist | Comunicação apenas consome eventos/dados de aula (aula marcada/cancelada/lotada) para enviar mensagens, sem influenciar o modelo de aulas. |
+| Contexto de Cobrança & Pagamentos | Contexto de Comunicação | Conformist | Comunicação consome eventos de cobrança (fatura gerada, vencimento, pagamento aprovado/falhou) para disparar lembretes e recibos. |
+| Contexto de Acesso & Check-in | Contexto de Relatórios & Indicadores | Conformist | Relatórios só consome eventos de check-in para métricas (frequência, horários de pico), aceitando o modelo do check-in como está. |
+| Contexto de Treinos | Contexto de Avaliações & Evolução | Partnership | Treinos e Avaliações evoluem juntos: avaliações influenciam progressão e ajustes de treino, e treinos geram dados que alimentam evolução. Requer colaboração e alinhamento constante. |
+| Contexto de Matrículas & Planos | Contexto de Treinos | Shared Kernel (mínimo) | Compartilham um núcleo pequeno e estável (ex.: `AlunoId` e/ou “referência do aluno”) para garantir consistência de identificação entre contextos sem acoplar regras de negócio. |
+| Gateway de Pagamento (externo) | Contexto de Cobrança & Pagamentos | Anticorruption Layer (ACL) | Pagamentos traduz o modelo do provedor (charge, subscription, webhook) para o modelo interno (Fatura, Pagamento, Inadimplência) sem “vazar” conceitos externos pro domínio. |
+
 
 ---
 
