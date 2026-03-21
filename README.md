@@ -22,7 +22,14 @@ Liste os subdomínios do sistema e classifique-os como Core Domain, Supporting
 |-----------------------------|--------------------------------------------------------------------------------------------------|------------------|
 |  Gestão de Matrículas e Planos  |    Criação/renovação/cancelamento de planos, status do aluno (ativo/inativo), regras de acesso por plano.              | Core Domain      |
 |  Controle de Acesso e Check-in  |    Valida se o aluno pode entrar (plano ativo, pendências), registra frequência e controla tentativas de acesso.       | Core Domain      |
-|    |                                              | Generic          |
+| Gestão de Treinos (Workout Programming) | Criação e atribuição de fichas/treinos (exercícios, séries, repetições, progressão) por aluno ou grupo. | Core Domain  |
+| Evolução e Avaliações | Registro de medidas, PRs, avaliações físicas e histórico de progresso do aluno. | Supporting |
+| Agendamento de Aulas e Reservas | Reserva de aulas coletivas, limite de vagas, lista de espera e presença. | Supporting |
+| Gestão de Equipe e Operação | Funcionários, permissões internas, escalas básicas e responsabilidades (recepção, professor, admin). | Supporting |
+| Relatórios e Indicadores | Dashboards de frequência, churn, inadimplência, receita, ocupação de aulas. | Supporting |
+| Pagamentos e Cobrança | Cobrança recorrente, pagamentos avulsos, conciliação e emissão de recibos/notas (via gateway). | Generic |
+| Autenticação e Segurança | Login, reset de senha, MFA, gestão de sessão e políticas básicas de segurança. | Generic |
+| Notificações e Comunicação | Envio de e-mail/SMS/WhatsApp/push (check-in, cobrança, aula confirmada, lembretes). | Generic |
 
 ---
 
