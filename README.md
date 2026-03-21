@@ -118,5 +118,3 @@ Diagrama Training HUB:
 
 
 ---
-
-Boa sorte com a dinâmica! 🚀
