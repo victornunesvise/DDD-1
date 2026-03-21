@@ -104,6 +104,10 @@ Desenhe um diagrama que mostre:
 
 Use ferramentas como **Miro**, **Lucidchart** ou mesmo papel e caneta para criar seu diagrama e adicionar ao projeto.
 
+Diagrama Training HUB:
+<img width="4425" height="3026" alt="training_hub_diagram" src="https://github.com/user-attachments/assets/fffe24b3-7d3b-4264-98a0-7bf603bd1662" />
+
+
 ---
 
 ## Dicas para Apresentação
