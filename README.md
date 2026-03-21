@@ -76,9 +76,18 @@ Liste os termos principais da Linguagem Ubíqua do projeto. Explique brevemente 
 
 | **Termo**                    | **Descrição**                                                                                   |
 |------------------------------|-----------------------------------------------------------------------------------------------|
-| Ex.: Consulta                | Sessão médica entre paciente e médico.                                                       |
-| Ex.: Paciente                | Usuário que agenda e realiza consultas.                                                      |
-| Ex.: Receita                 | Prescrição médica gerada durante a consulta.                                                 |
+| Aluno                        | Pessoa cadastrada na academia que utiliza os serviços e possui uma matrícula vinculada.                                                       |
+| Matrícula                | Vínculo do aluno com a academia que define se ele está ativo, seu plano atual e se tem permissão de acesso.                                                      |
+| Plano                 | Conjunto de regras comerciais do serviço (preço, validade, benefícios e restrições de acesso).                                                 |
+| Fatura | Cobrança gerada para um período do plano do aluno, com vencimento e valor a pagar. |
+| Pagamento | Registro da quitação (ou tentativa) de uma fatura — pode ser aprovado, pendente ou recusado. |
+| Inadimplência | Estado do aluno quando há fatura vencida sem pagamento, podendo bloquear o acesso conforme regra. |
+| Check-in | Registro de entrada do aluno na academia em um horário específico, usado para controle de frequência. |
+| Regra de Acesso | Critérios que determinam se o check-in será permitido (ex.: matrícula ativa, sem inadimplência, dentro do horário). |
+| Ficha de Treino | Conjunto de treinos atribuídos ao aluno (ex.: A/B/C), com foco, ordem e período de validade. |
+| Treino | Uma sessão planejada dentro da ficha, composta por exercícios e parâmetros (séries/reps/carga/descanso). |
+| Exercício | Atividade executável do treino (ex.: supino), com parâmetros e instruções de execução. |
+| Avaliação Física | Registro periódico de medidas e indicadores do aluno para acompanhar evolução (peso, BF, circunferências etc.). |
 
 ---
 
