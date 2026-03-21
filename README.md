@@ -119,11 +119,4 @@ Diagrama Training HUB:
 
 ---
 
-## Dicas para Apresentação
-- Explique cada parte do design, focando no **Core Domain** (o coração do negócio).
-- Justifique por que certos subdomínios foram classificados como Supporting ou Generic.
-- Destaque como a comunicação entre bounded contexts foi pensada para ser escalável.
-
----
-
 Boa sorte com a dinâmica! 🚀
