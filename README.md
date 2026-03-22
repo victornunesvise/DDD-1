@@ -53,7 +53,43 @@ Liste e descreva os bounded contexts identificados no projeto. Explique a respon
 
 ---
 
-## 5. Comunicação entre os Bounded Contexts
+---
+
+## 5. Definição da Linguagem Ubíqua
+Liste os termos principais da Linguagem Ubíqua do projeto. Explique brevemente cada termo.
+
+| **Termo**                    | **Descrição**                                                                                   |
+|------------------------------|-----------------------------------------------------------------------------------------------|
+| Aluno                        | Pessoa cadastrada na academia que utiliza os serviços e possui uma matrícula vinculada.                                                       |
+| Matrícula                | Vínculo do aluno com a academia que define se ele está ativo, seu plano atual e se tem permissão de acesso.                                                      |
+| Plano                 | Conjunto de regras comerciais do serviço (preço, validade, benefícios e restrições de acesso).                                                 |
+| Fatura | Cobrança gerada para um período do plano do aluno, com vencimento e valor a pagar. |
+| Pagamento | Registro da quitação (ou tentativa) de uma fatura — pode ser aprovado, pendente ou recusado. |
+| Inadimplência | Estado do aluno quando há fatura vencida sem pagamento, podendo bloquear o acesso conforme regra. |
+| Check-in | Registro de entrada do aluno na academia em um horário específico, usado para controle de frequência. |
+| Regra de Acesso | Critérios que determinam se o check-in será permitido (ex.: matrícula ativa, sem inadimplência, dentro do horário). |
+| Ficha de Treino | Conjunto de treinos atribuídos ao aluno (ex.: A/B/C), com foco, ordem e período de validade. |
+| Treino | Uma sessão planejada dentro da ficha, composta por exercícios e parâmetros (séries/reps/carga/descanso). |
+| Exercício | Atividade executável do treino (ex.: supino), com parâmetros e instruções de execução. |
+| Avaliação Física | Registro periódico de medidas e indicadores do aluno para acompanhar evolução (peso, BF, circunferências etc.). |
+
+---
+
+## 6. Estratégia de Desenvolvimento
+Para cada tipo de subdomínio, explique a abordagem para implementação:
+- **Core Domain:** Desenvolver internamente com foco total.
+- **Supporting Subdomain:** Desenvolver internamente ou parcialmente terceirizar.
+- **Generic Subdomain:** Usar ferramentas ou serviços de mercado.
+
+| **Subdomínio**              | **Estratégia**                         | **Ferramentas ou Serviços (se aplicável)** |
+|-----------------------------|---------------------------------------|-------------------------------------------|
+| Gestão de Consultas         | Desenvolvimento interno               |                                           |
+| Cadastro de Usuários        | Interno com uso de Auth0 para login   | Auth0                                     |
+| Pagamentos                  | Terceirizar usando API Stripe         | Stripe                                    |
+
+---
+
+## 7. Comunicação entre os Bounded Contexts
 Explique como os bounded contexts vão se comunicar. Use os padrões de comunicação, como:
 - **Mensageria/Eventos (desacoplado):** Ex.: O Contexto de Consultas emite um evento "Consulta Finalizada", consumido pelo Contexto de Pagamentos.
 - **APIs (síncrono):** Ex.: O Contexto de Pagamentos consulta informações de preços no Contexto de Consultas.
@@ -78,7 +114,7 @@ Explique como os bounded contexts vão se comunicar. Use os padrões de comunica
 
 ---
 
-## 6. Diagrama Visual (Opcional, mas Recomendado)
+## 8. Diagrama Visual (Opcional, mas Recomendado)
 Desenhe um diagrama que mostre:
 - Os bounded contexts.
 - Como eles se comunicam.
@@ -88,42 +124,6 @@ Use ferramentas como **Miro**, **Lucidchart** ou mesmo papel e caneta para criar
 
 Diagrama Training HUB:
 <img width="4425" height="3026" alt="training_hub_diagram" src="https://github.com/user-attachments/assets/fffe24b3-7d3b-4264-98a0-7bf603bd1662" />
-
----
-
-## 7. Definição da Linguagem Ubíqua
-Liste os termos principais da Linguagem Ubíqua do projeto. Explique brevemente cada termo.
-
-| **Termo**                    | **Descrição**                                                                                   |
-|------------------------------|-----------------------------------------------------------------------------------------------|
-| Aluno                        | Pessoa cadastrada na academia que utiliza os serviços e possui uma matrícula vinculada.                                                       |
-| Matrícula                | Vínculo do aluno com a academia que define se ele está ativo, seu plano atual e se tem permissão de acesso.                                                      |
-| Plano                 | Conjunto de regras comerciais do serviço (preço, validade, benefícios e restrições de acesso).                                                 |
-| Fatura | Cobrança gerada para um período do plano do aluno, com vencimento e valor a pagar. |
-| Pagamento | Registro da quitação (ou tentativa) de uma fatura — pode ser aprovado, pendente ou recusado. |
-| Inadimplência | Estado do aluno quando há fatura vencida sem pagamento, podendo bloquear o acesso conforme regra. |
-| Check-in | Registro de entrada do aluno na academia em um horário específico, usado para controle de frequência. |
-| Regra de Acesso | Critérios que determinam se o check-in será permitido (ex.: matrícula ativa, sem inadimplência, dentro do horário). |
-| Ficha de Treino | Conjunto de treinos atribuídos ao aluno (ex.: A/B/C), com foco, ordem e período de validade. |
-| Treino | Uma sessão planejada dentro da ficha, composta por exercícios e parâmetros (séries/reps/carga/descanso). |
-| Exercício | Atividade executável do treino (ex.: supino), com parâmetros e instruções de execução. |
-| Avaliação Física | Registro periódico de medidas e indicadores do aluno para acompanhar evolução (peso, BF, circunferências etc.). |
-
----
-
-## 8. Estratégia de Desenvolvimento
-Para cada tipo de subdomínio, explique a abordagem para implementação:
-- **Core Domain:** Desenvolver internamente com foco total.
-- **Supporting Subdomain:** Desenvolver internamente ou parcialmente terceirizar.
-- **Generic Subdomain:** Usar ferramentas ou serviços de mercado.
-
-| **Subdomínio**              | **Estratégia**                         | **Ferramentas ou Serviços (se aplicável)** |
-|-----------------------------|---------------------------------------|-------------------------------------------|
-| Gestão de Consultas         | Desenvolvimento interno               |                                           |
-| Cadastro de Usuários        | Interno com uso de Auth0 para login   | Auth0                                     |
-| Pagamentos                  | Terceirizar usando API Stripe         | Stripe                                    |
-
----
 
 
 ---
