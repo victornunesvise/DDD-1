@@ -273,6 +273,26 @@ class IMatriculaRepository(ABC):
 
 ---
 
+## Eventos de Domínio
+
+| Evento                               | Quando ocorre                                | Payload mínimo                                      | Interno/Integração | Observações                                                  |
+| ------------------------------------ | -------------------------------------------- | --------------------------------------------------- | ------------------ | ------------------------------------------------------------ |
+| **MatriculaAtivada**                 | Quando a matrícula passa para o estado Ativa | matriculaId, alunoId, planoId, dataInicio, dataFim  | Interno            | Pode disparar ações em comunicação e acesso                  |
+| **MatriculaPausada**                 | Quando a matrícula é pausada                 | matriculaId, alunoId, dataInicioPausa, dataFimPausa | Interno            | Impacta elegibilidade de acesso                              |
+| **MatriculaCancelada**               | Quando a matrícula é cancelada               | matriculaId, alunoId, dataCancelamento, motivo      | Integração         | Consumido por acesso, treinos e comunicação                  |
+| **MatriculaMarcadaComoInadimplente** | Quando cobrança informa bloqueio por atraso  | matriculaId, alunoId, referenciaFinanceira          | Integração         | Deve ser idempotente; origem externa do contexto de cobrança |
+| **MatriculaRenovada**                | Quando há extensão/reinício de vigência      | matriculaId, alunoId, novaVigencia                  | Integração         | Pode liberar acesso novamente                                |
+
+
+---
+
+## Diagrama
+
+<img width="2438" height="1293" alt="image" src="https://github.com/user-attachments/assets/23941484-9700-4529-805b-9efc24e3fbb5" />
+
+
+---
+
 # AULA 4
 
 ---
