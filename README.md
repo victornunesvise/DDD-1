@@ -167,9 +167,6 @@ Diagrama Training HUB:
 | **RegraDeAcesso** | VO | Conjunto de regras do plano aplicáveis ao acesso, sem identidade própria. |
 | **LimiteDeAulasPorPeriodo** | VO | Representa uma restrição por valor, com significado de domínio e imutabilidade. |
 
-> **Observação:**  
-> **Plano** pode ser tratado como entidade em um contexto mais amplo de catálogo comercial, mas dentro do agregado de matrícula ele deve entrar apenas como **referência por ID** ou como uma “fotografia contratual” dos termos relevantes.
-
 ---
 
 
