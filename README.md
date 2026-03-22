@@ -293,10 +293,11 @@ class IMatriculaRepository(ABC):
 
 ---
 
-# AULA 4
+# AULA 4 - Event Storming
 
 ---
 
+<img width="10430" height="2829" alt="event_storming" src="https://github.com/user-attachments/assets/56fbf588-5f25-4fed-821a-dcaf44286299" />
 
 
 ---
