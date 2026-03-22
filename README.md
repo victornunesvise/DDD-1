@@ -218,13 +218,14 @@ A **Matrícula** é a AR porque:
 
 ### Estados e transições da AR Matrícula
 
-Rascunho -> Ativa -> Pausada -> Ativa
-Ativa -> Inadimplente
-Inadimplente -> Ativa
-Ativa -> Cancelada
-Pausada -> Cancelada
-Ativa -> Expirada
-Inadimplente -> Cancelada
+**Rascunho** -> **Ativa** -> **Pausada** -> **Ativa**
+
+**Ativa** -> **Inadimplente**
+**Inadimplente** -> **Ativa**
+**Ativa** -> **Cancelada**
+**Pausada** -> **Cancelada**
+**Ativa** -> **Expirada**
+**Inadimplente** -> **Cancelada**
 
 ### Regras
 - **Rascunho** -> **Ativa** permitida se existir aluno válido, plano válido e vigência definida.
