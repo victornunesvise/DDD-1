@@ -221,10 +221,15 @@ A **Matrícula** é a AR porque:
 **Rascunho** -> **Ativa** -> **Pausada** -> **Ativa**
 
 **Ativa** -> **Inadimplente**
+
 **Inadimplente** -> **Ativa**
+
 **Ativa** -> **Cancelada**
+
 **Pausada** -> **Cancelada**
+
 **Ativa** -> **Expirada**
+
 **Inadimplente** -> **Cancelada**
 
 ### Regras
