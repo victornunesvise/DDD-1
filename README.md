@@ -152,6 +152,26 @@ Diagrama Training HUB:
 - Contexto de Comunicação
 
 
+---
+
+## Entidades vs Value Objects
+
+| Elemento | Tipo (Entidade/VO) | Por quê? (identidade/imutável) |
+|---|---|---|
+| **Matrícula** | Entidade | Possui identidade própria, ciclo de vida, estados e histórico de mudanças ao longo do tempo. |
+| **Plano** | Entidade | É identificado no sistema e pode ser referenciado por várias matrículas; seu histórico e vigência importam. |
+| **AlunoId** | VO | Não tem identidade própria no domínio; representa um identificador imutável por valor. |
+| **PeriodoDeVigencia** | VO | Representa intervalo de datas com início e fim; igualdade por valor e comportamento imutável. |
+| **Money** | VO | Valor monetário com moeda; sem identidade própria, comparado por valor. |
+| **StatusMatricula** | VO | Representa o estado da matrícula de forma semântica; pode ser modelado como enum rico/VO imutável. |
+| **RegraDeAcesso** | VO | Conjunto de regras do plano aplicáveis ao acesso, sem identidade própria. |
+| **LimiteDeAulasPorPeriodo** | VO | Representa uma restrição por valor, com significado de domínio e imutabilidade. |
+
+> **Observação:**  
+> **Plano** pode ser tratado como entidade em um contexto mais amplo de catálogo comercial, mas dentro do agregado de matrícula ele deve entrar apenas como **referência por ID** ou como uma “fotografia contratual” dos termos relevantes.
+
+---
+
 
 ---
 
