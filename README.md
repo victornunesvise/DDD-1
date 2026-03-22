@@ -78,7 +78,20 @@ Explique como os bounded contexts vão se comunicar. Use os padrões de comunica
 
 ---
 
-## 6. Definição da Linguagem Ubíqua
+## 6. Diagrama Visual (Opcional, mas Recomendado)
+Desenhe um diagrama que mostre:
+- Os bounded contexts.
+- Como eles se comunicam.
+- A relação com os subdomínios.
+
+Use ferramentas como **Miro**, **Lucidchart** ou mesmo papel e caneta para criar seu diagrama e adicionar ao projeto.
+
+Diagrama Training HUB:
+<img width="4425" height="3026" alt="training_hub_diagram" src="https://github.com/user-attachments/assets/fffe24b3-7d3b-4264-98a0-7bf603bd1662" />
+
+---
+
+## 7. Definição da Linguagem Ubíqua
 Liste os termos principais da Linguagem Ubíqua do projeto. Explique brevemente cada termo.
 
 | **Termo**                    | **Descrição**                                                                                   |
@@ -98,7 +111,7 @@ Liste os termos principais da Linguagem Ubíqua do projeto. Explique brevemente 
 
 ---
 
-## 7. Estratégia de Desenvolvimento
+## 8. Estratégia de Desenvolvimento
 Para cada tipo de subdomínio, explique a abordagem para implementação:
 - **Core Domain:** Desenvolver internamente com foco total.
 - **Supporting Subdomain:** Desenvolver internamente ou parcialmente terceirizar.
@@ -111,17 +124,6 @@ Para cada tipo de subdomínio, explique a abordagem para implementação:
 | Pagamentos                  | Terceirizar usando API Stripe         | Stripe                                    |
 
 ---
-
-## 8. Diagrama Visual (Opcional, mas Recomendado)
-Desenhe um diagrama que mostre:
-- Os bounded contexts.
-- Como eles se comunicam.
-- A relação com os subdomínios.
-
-Use ferramentas como **Miro**, **Lucidchart** ou mesmo papel e caneta para criar seu diagrama e adicionar ao projeto.
-
-Diagrama Training HUB:
-<img width="4425" height="3026" alt="training_hub_diagram" src="https://github.com/user-attachments/assets/fffe24b3-7d3b-4264-98a0-7bf603bd1662" />
 
 
 ---
