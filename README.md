@@ -202,6 +202,39 @@ A **Matrícula** é a AR porque:
 - decide quando pode ser ativada, pausada, renovada ou cancelada
 - protege a consistência das regras que impactam acesso
 
+---
+
+## Invariantes e Máquina de Estados
+
+### Invariantes
+- **Uma matrícula deve estar vinculada a exatamente um aluno.**
+- **Uma matrícula deve estar vinculada a exatamente um plano ativo no momento da contratação.**
+- **Uma matrícula ativa deve possuir período de vigência válido.**
+- **Uma matrícula cancelada não pode ser reativada diretamente; deve gerar nova matrícula ou passar por regra explícita de reabertura.**
+- **Uma matrícula pausada não pode permitir acesso.**
+- **Uma matrícula vencida não pode permanecer com status “Ativa”.**
+- **Não pode existir mais de uma matrícula ativa simultânea para o mesmo aluno na mesma unidade/academia**, se essa for uma regra do negócio.
+- **As regras de acesso contratadas devem refletir o plano vigente no momento da contratação/renovação.**
+
+### Estados e transições da AR Matrícula
+```text
+Rascunho -> Ativa -> Pausada -> Ativa
+Ativa -> Inadimplente
+Inadimplente -> Ativa
+Ativa -> Cancelada
+Pausada -> Cancelada
+Ativa -> Expirada
+Inadimplente -> Cancelada
+
+### Regras
+- **Rascunho** -> **Ativa** permitida se existir aluno válido, plano válido e vigência definida.
+- **Ativa** -> **Pausada** permitida se a política do plano permitir pausa.
+- **Pausada** -> **Ativa** permitida se a pausa estiver dentro do prazo máximo e não houver bloqueio financeiro.
+- **Ativa** -> **Inadimplente** ocorre quando cobrança informa atraso conforme política do negócio.
+- **Inadimplente** -> **Ativa** ocorre após confirmação de regularização financeira.
+- **Ativa** -> **Cancelada** permitida mediante solicitação válida e respeitando regras contratuais.
+- **Ativa** -> **Expirada** ocorre quando termina a vigência sem renovação.
+- **Cancelada** é terminal na maior parte dos casos.
 
 ---
 
