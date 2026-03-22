@@ -170,6 +170,40 @@ Diagrama Training HUB:
 ---
 
 
+## Agregados e Aggregate Root (AR)
+
+**Agregado Principal:** **Matrícula**
+
+**Conteúdo interno do agregado (apenas o necessário para consistência local):**
+- **MatriculaId**
+- **AlunoId**
+- **PlanoId**
+- **StatusMatricula**
+- **PeriodoDeVigencia**
+- **RegraDeAcessoContratada**
+- **HistoricoDeStatus**
+- **DataDeCancelamento**
+- **MotivoDeCancelamento**
+
+**Referências a outros agregados (por ID):**
+- **AlunoId**
+- **PlanoId**
+
+**Boundary — Por que cada item está dentro/fora?**
+- **Dentro** porque o estado da matrícula, sua vigência e suas regras contratadas precisam permanecer consistentes na mesma transação.
+- **Dentro** porque ativação, pausa, renovação e cancelamento precisam respeitar invariantes imediatamente.
+- **Fora** porque **Pagamento/Fatura** pertence ao contexto de Cobrança & Pagamentos e pode ser sincronizado por eventos.
+- **Fora** porque **Check-in** pertence ao contexto de Acesso & Check-in e não deve ficar acoplado à matrícula.
+- **Fora** porque **Treino** pertence ao contexto de Treinos e só precisa da referência ao aluno.
+- **Fora** porque **Plano completo** pode ser outro agregado/contexto; a matrícula precisa apenas da referência e de alguns dados contratuais congelados.
+
+### Sugestão de composição do agregado
+A **Matrícula** é a AR porque:
+- concentra as regras do ciclo de vida do vínculo do aluno
+- decide quando pode ser ativada, pausada, renovada ou cancelada
+- protege a consistência das regras que impactam acesso
+
+
 ---
 
 # AULA 4
