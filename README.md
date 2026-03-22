@@ -41,10 +41,16 @@ Para cada tipo de subdomínio, explique a abordagem para implementação:
 - **Generic Subdomain:** Usar ferramentas ou serviços de mercado.
 
 | **Subdomínio**              | **Estratégia**                         | **Ferramentas ou Serviços (se aplicável)** |
-|-----------------------------|---------------------------------------|-------------------------------------------|
-| Gestão de Consultas         | Desenvolvimento interno               |                                           |
-| Cadastro de Usuários        | Interno com uso de Auth0 para login   | Auth0                                     |
-| Pagamentos                  | Terceirizar usando API Stripe         | Stripe                                    |
+|-----------------------------|---------------------------------------|-------------------------------------------|| Gestão de Matrículas e Planos | Core | Desenvolvimento interno com foco total. Modelagem rica com entidades, agregados e regras de negócio proprietárias. Equipe dedicada. | — |
+| Controle de Acesso e Check-in | Core | Desenvolvimento interno com foco total. Regras de validação e frequência são proprietárias. Integração com hardware via SDK do fabricante. | Henry (catracas e biometria) |
+| Gestão de Treinos | Core | Desenvolvimento interno com foco total. Lógica de prescrição, progressão e personalização é o principal diferencial competitivo. | — |
+| Evolução e Avaliações | Supporting | Desenvolvimento interno simplificado. CRUD com regras pontuais de domínio para medidas, PRs e avaliações físicas. | — |
+| Agendamento de Aulas e Reservas | Supporting | Desenvolvimento interno com apoio de biblioteca de calendário para a base de UI e regras de vagas customizadas internamente. | Cal.com (referência de scheduling) |
+| Gestão de Equipe e Operação | Supporting | Desenvolvimento interno simplificado com modelo RBAC próprio para permissões e escalas. | — |
+| Relatórios e Indicadores | Supporting | Desenvolvimento interno dos dados com ferramenta de BI para visualização dos dashboards. | Metabase |
+| Pagamentos e Cobrança | Generic | Terceirizar usando gateway de pagamento. Toda lógica de cobrança recorrente, conciliação e emissão de notas delegada ao serviço. | Stripe |
+| Autenticação e Segurança | Generic | Terceirizar usando provedor de identidade. Login, MFA e gestão de sessão totalmente delegados. | Auth0 |
+| Notificações e Comunicação | Generic | Terceirizar usando plataforma unificada de mensageria. Internamente apenas uma camada fina que decide *quando* e *o quê* enviar. | Twilio (SMS, WhatsApp e push) + SendGrid (e-mail) |
 
 
 ---
