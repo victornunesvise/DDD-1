@@ -138,3 +138,27 @@ Diagrama Training HUB:
 ---
 # AULA 3
 --
+
+
+## Sobre o Domínio Escolhido
+**Nome do domínio:** **TrainHub — Gestão de Matrículas e Planos**  
+**Objetivo do sistema:** **Gerenciar o ciclo de vida da matrícula do aluno na academia, vinculando-o a um plano, controlando elegibilidade de acesso e refletindo sua situação contratual.**  
+**Principais atores:** **Aluno, Recepcionista, Administrador, Instrutor, Gateway de Pagamento**  
+**Contextos (opcional):**
+- Contexto de Matrículas & Planos
+- Contexto de Cobrança & Pagamentos
+- Contexto de Acesso & Check-in
+- Contexto de Treinos
+- Contexto de Comunicação
+
+
+
+---
+
+# AULA 4
+
+---
+
+
+
+---
