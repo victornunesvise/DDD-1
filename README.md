@@ -217,7 +217,7 @@ A **Matrícula** é a AR porque:
 - **As regras de acesso contratadas devem refletir o plano vigente no momento da contratação/renovação.**
 
 ### Estados e transições da AR Matrícula
-```text
+
 Rascunho -> Ativa -> Pausada -> Ativa
 Ativa -> Inadimplente
 Inadimplente -> Ativa
