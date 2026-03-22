@@ -238,6 +238,41 @@ A **Matrícula** é a AR porque:
 
 ---
 
+## Repositório do Agregado (interface)
+```python
+from abc import ABC, abstractmethod
+from uuid import UUID
+from typing import Optional
+
+
+class Matricula:
+    pass
+
+
+class IMatriculaRepository(ABC):
+    @abstractmethod
+    async def obter_por_id(self, matricula_id: UUID) -> Optional[Matricula]:
+        pass
+
+    @abstractmethod
+    async def obter_ativa_por_aluno_id(self, aluno_id: UUID) -> Optional[Matricula]:
+        pass
+
+    @abstractmethod
+    async def existe_matricula_ativa_para_aluno(self, aluno_id: UUID) -> bool:
+        pass
+
+    @abstractmethod
+    async def adicionar(self, matricula: Matricula) -> None:
+        pass
+
+    @abstractmethod
+    async def salvar(self, matricula: Matricula) -> None:
+        pass
+```
+
+---
+
 # AULA 4
 
 ---
