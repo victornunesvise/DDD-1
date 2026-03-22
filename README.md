@@ -41,7 +41,8 @@ Para cada tipo de subdomínio, explique a abordagem para implementação:
 - **Generic Subdomain:** Usar ferramentas ou serviços de mercado.
 
 | **Subdomínio**              | **Estratégia**                         | **Ferramentas ou Serviços (se aplicável)** |
-|-----------------------------|---------------------------------------|-------------------------------------------|| Gestão de Matrículas e Planos | Core | Desenvolvimento interno com foco total. Modelagem rica com entidades, agregados e regras de negócio proprietárias. Equipe dedicada. | — |
+|-----------------------------|---------------------------------------|-------------------------------------------|
+| Gestão de Matrículas e Planos | Core | Desenvolvimento interno com foco total. Modelagem rica com entidades, agregados e regras de negócio proprietárias. Equipe dedicada. | — |
 | Controle de Acesso e Check-in | Core | Desenvolvimento interno com foco total. Regras de validação e frequência são proprietárias. Integração com hardware via SDK do fabricante. | Henry (catracas e biometria) |
 | Gestão de Treinos | Core | Desenvolvimento interno com foco total. Lógica de prescrição, progressão e personalização é o principal diferencial competitivo. | — |
 | Evolução e Avaliações | Supporting | Desenvolvimento interno simplificado. CRUD com regras pontuais de domínio para medidas, PRs e avaliações físicas. | — |
