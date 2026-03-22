@@ -123,7 +123,7 @@ Explique como os bounded contexts vão se comunicar. Use os padrões de comunica
 
 ---
 
-## 8. Diagrama Visual (Opcional, mas Recomendado)
+## 8. Diagrama Visual
 Desenhe um diagrama que mostre:
 - Os bounded contexts.
 - Como eles se comunicam.
