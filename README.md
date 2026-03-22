@@ -197,7 +197,6 @@ Diagrama Training HUB:
 - **Fora** porque **Treino** pertence ao contexto de Treinos e só precisa da referência ao aluno.
 - **Fora** porque **Plano completo** pode ser outro agregado/contexto; a matrícula precisa apenas da referência e de alguns dados contratuais congelados.
 
-### Sugestão de composição do agregado
 A **Matrícula** é a AR porque:
 - concentra as regras do ciclo de vida do vínculo do aluno
 - decide quando pode ser ativada, pausada, renovada ou cancelada
